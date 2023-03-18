@@ -15,7 +15,8 @@ a{
 }
 
 a:hover{
-    color:aqua;
+    /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
+    color:#FF4B2B;
 }
 
 .banner-image {
