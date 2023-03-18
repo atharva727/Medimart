@@ -5,31 +5,7 @@
 
 {% block content %}
 <div class="container-fluid" style="background-color: #f5f5f5;">
-    <div>
-        <div class="signup-form col-6">
-            <form action="" class='' method="post">
-                {% csrf_token %}
-                <h2 class="text-center font-weight-bold text-primary">Sign In</h2>
-                <p class="text-center">Please fill in this form to Sign In!</p>
-                <hr>
-                <div class="form-group my-3 col-9 mx-auto">
-                    <div><span class="text-danger">{{error}}</span></div>
-                    <div class="input-group">                        
-                        <input type="email" class="form-control" name="email" placeholder="Email Address" required="required">
-                    </div>
-                </div>               
-                <div class="form-group my-3 col-9 mx-auto">
-                    <div class="input-group">
-                        <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-                    </div>
-                </div>
-                <div class="form-group d-flex justify-content-center">
-                    <button type="submit" class="btn btn-block mx-auto btn-success">Sign Up</button>
-                </div>
-                <div class="text-center my-3">Don't have an account? <a href="#">Register here</a></div>
-            </form>
-        </div>
-    </div>
+
 </div>
 {% endblock %}
 

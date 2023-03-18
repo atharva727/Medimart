@@ -1,5 +1,29 @@
-body{
+html, body{
     margin: 0;
     padding: 0;
     background-color: #111111;
+    height: 100%;
+}
+
+.container{
+    height: 60%;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    color:aqua;
+}
+
+.banner-image {
+    background-size: cover;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* min-height: 500px; */
+  }
+  
+footer {
+    margin-bottom: -50px;
 }
