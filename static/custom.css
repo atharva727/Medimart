@@ -16,15 +16,19 @@ a{
 
 a:hover{
     /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
-    color:#FF4B2B;
+    color:#ff586c;
 }
 
 .banner-image {
-    background-size: cover;
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    /* min-height: 500px; */
   }
   
 footer {
     margin-bottom: -50px;
 }
+/* #signup-btn{
+
+} */
