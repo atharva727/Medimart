@@ -6,7 +6,7 @@ html, body{
 }
 
 .container{
-    height: 60%;
+    height: 62%;
 }
 
 a{
@@ -29,6 +29,3 @@ a:hover{
 footer {
     margin-bottom: -50px;
 }
-/* #signup-btn{
-
-} */

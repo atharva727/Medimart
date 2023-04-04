@@ -12,7 +12,7 @@
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-                <form action="#">
+                <form action="">
                     <h1>Upload Your Prescription</h1>
                     <div class="d-flex justify-content-center my-2 align-items-center" id="img-container">
                         <img class="img-fluid h-100" src="" alt="" id="prescriptionImage">
@@ -34,7 +34,7 @@
 
             reader.onload = function (e) {
                 img_container = document.getElementById("img-container");
-                img_container.style.height = '300px'
+                img_container.style.height = '20vh'
                 image = document.getElementById("prescriptionImage");
                 image.src = e.target.result;
             };
