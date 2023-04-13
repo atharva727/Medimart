@@ -2,6 +2,14 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.views import View
 from prescription.forms import SignupForm
 from django.contrib.auth import authenticate, login, logout
+from django.core.files.storage import FileSystemStorage
+from doctr.models import ocr_predictor
+from doctr.io import DocumentFile
+
+
+
+
+
 # Create your views here.
 class Index(View):
     def get(self,request):
@@ -56,7 +64,16 @@ class Prescription(View):
         return render(request,'prescription.html')
 
     def post(self,request):
-
+        #print(request.FILES.get("prescriptionImage"))
+        request_file=request.FILES['prescriptionImage'] if 'prescriptionImage' in request.FILES else None
+        if request_file:
+            fs=FileSystemStorage()
+            file=fs.save("Atharva.jpg",request_file)
+            fileurl=fs.url(file)
+            doc = DocumentFile.from_images("C:/Users/anjug/Downloads/car5.jpg")
+            model = ocr_predictor(pretrained=True)
+            result = model(doc)
+            
         return render(request,'prescription.html')
 
 class Result(View):
