@@ -17,17 +17,14 @@
           <!-- <li class="nav-item mx-2">
             <a class="nav-link" href="{% url 'signup' %}">Signup</a>
           </li> -->
-        {% else %}
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="{% url 'prescription' %}">Upload Prescription</a>
-          </li>
+        {% else %}     
           <li class="nav-item mx-2">
             <a class="nav-link" href="{% url 'logout' %}">Logout</a>
           </li>
         {% endif%}
-          <li class="nav-item mx-2">
-            <a class="nav-link" href="{% url 'result' %}">About Us</a>
-          </li>
+        <li class="nav-item mx-2">
+          <a class="nav-link" href="{% url 'prescription' %}">Upload Prescription</a>
+        </li>
         </ul>
 
       </div>
