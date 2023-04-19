@@ -11,9 +11,6 @@ def getText(imagePath):
     
     return text
 
-
-
-# W = set(w)
 def autoCorrect(inputWord,WORDS):
 
     inputWord = inputWord.lower()

@@ -3,9 +3,18 @@ from django.views import View
 from prescription.forms import SignupForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import FileSystemStorage
-import re
 
-from .model import getText, autoCorrect
+
+from selenium import webdriver 
+from selenium.webdriver.chrome.service import Service as ChromeService 
+from webdriver_manager.chrome import ChromeDriverManager 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+
+
+
+from .webscraping import *
+from .textRecognition import getText, autoCorrect
 WORDS= []
 
 
@@ -89,7 +98,21 @@ class Result(View):
                 med, sim = autoCorrect(word,WORDS)
                 if sim > 0.4:
                     MEDICINES+=[med]
-            
-        context = {"Medicines":MEDICINES}
         
+            options = Options()
+            options.add_argument('--headless=new')
+
+            driver = webdriver.Chrome(options=options, service=ChromeService(ChromeDriverManager().install()))
+            webs = []
+            data = [
+                getPharmeasy(MEDICINES,driver),
+                get1mg(MEDICINES,driver),
+                getApollo(MEDICINES,driver),
+                getNetmed(MEDICINES,driver)
+            ]
+        
+        print(data)
+            
+        context = {"data":data,'webs':webs}
+                
         return render(request,'results.html',context)

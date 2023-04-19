@@ -11,13 +11,14 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-12">
+                  {% for webdata in data %}
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true">
                         <table class="table table-striped mb-0">
                           <thead style="background-color: #002d72;">
                             <tr class='text-center'>
-                              <th scope="col" colspan="3">Pharmeasy</th>
+                              <th scope="col" colspan="3">{{website}}</th>
                             </tr>
                             <tr>
                               <th scope="col">Medicine</th>
@@ -26,31 +27,13 @@
                             </tr>
                           </thead>
                           <tbody>
+                            {% for medicines in webdata %}
                             <tr>
-                              <td>Like a butterfly</td>
-                              <td>9:00 AM - 11:00 AM</td>
-                              <td>Aaron Chapman</td>
+                              {% for medinfo in medicines.values %}
+                              <td>{{medinfo}}</td>
+                              {% endfor %}
                             </tr>
-                            <tr>
-                              <td>Mind &amp; Body</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Adam Stewart</td>
-                            </tr>
-                            <tr>
-                              <td>Crit Cardio</td>
-                              <td>9:00 AM - 10:00 AM</td>
-                              <td>Aaron Chapman</td>
-                            </tr>
-                            <tr>
-                              <td>Wheel Pose Full Posture</td>
-                              <td>7:00 AM - 8:30 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
-                            <tr>
-                              <td>Playful Dancer's Flow</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
+                            {% endfor %}
                             <tr>
                               <td></td>
                               <td >Total</td>
@@ -61,160 +44,7 @@
                       </div>
                     </div>
                   </div>
-
-                  <div class="card">
-                    <div class="card-body p-0">
-                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true">
-                        <table class="table table-striped mb-0">
-                          <thead style="background-color: #002d72;">
-                            <tr class='text-center'>
-                              <th scope="col" colspan="3">Pharmeasy</th>
-                            </tr>
-                            <tr>
-                              <th scope="col">Medicine</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Link</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Like a butterfly</td>
-                              <td>9:00 AM - 11:00 AM</td>
-                              <td>Aaron Chapman</td>
-                            </tr>
-                            <tr>
-                              <td>Mind &amp; Body</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Adam Stewart</td>
-                            </tr>
-                            <tr>
-                              <td>Crit Cardio</td>
-                              <td>9:00 AM - 10:00 AM</td>
-                              <td>Aaron Chapman</td>
-                            </tr>
-                            <tr>
-                              <td>Wheel Pose Full Posture</td>
-                              <td>7:00 AM - 8:30 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
-                            <tr>
-                              <td>Playful Dancer's Flow</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <td >Total</td>
-                              <td>500 </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-body p-0">
-                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true">
-                        <table class="table table-striped mb-0">
-                          <thead style="background-color: #002d72;">
-                            <tr class='text-center'>
-                              <th scope="col" colspan="3">Pharmeasy</th>
-                            </tr>
-                            <tr>
-                              <th scope="col">Medicine</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Link</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Like a butterfly</td>
-                              <td>9:00 AM - 11:00 AM</td>
-                              <td>Aaron Chapman</td>
-                            </tr>
-                            <tr>
-                              <td>Mind &amp; Body</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Adam Stewart</td>
-                            </tr>
-                            <tr>
-                              <td>Crit Cardio</td>
-                              <td>9:00 AM - 10:00 AM</td>
-                              <td>Aaron Chapman</td>
-                            </tr>
-                            <tr>
-                              <td>Wheel Pose Full Posture</td>
-                              <td>7:00 AM - 8:30 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
-                            <tr>
-                              <td>Playful Dancer's Flow</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <td >Total</td>
-                              <td>500 </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card-body p-0">
-                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true">
-                        <table class="table table-striped mb-0">
-                          <thead style="background-color: #002d72;">
-                            <tr class='text-center'>
-                              <th scope="col" colspan="3">Pharmeasy</th>
-                            </tr>
-                            <tr>
-                              <th scope="col">Medicine</th>
-                              <th scope="col">Price</th>
-                              <th scope="col">Link</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>Like a butterfly</td>
-                              <td>9:00 AM - 11:00 AM</td>
-                              <td>Aaron Chapman</td>
-                            </tr>
-                            <tr>
-                              <td>Mind &amp; Body</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Adam Stewart</td>
-                            </tr>
-                            <tr>
-                              <td>Crit Cardio</td>
-                              <td>9:00 AM - 10:00 AM</td>
-                              <td>Aaron Chapman</td>
-                            </tr>
-                            <tr>
-                              <td>Wheel Pose Full Posture</td>
-                              <td>7:00 AM - 8:30 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
-                            <tr>
-                              <td>Playful Dancer's Flow</td>
-                              <td>8:00 AM - 9:00 AM</td>
-                              <td>Donna Wilson</td>
-                            </tr>
-                            <tr>
-                              <td></td>
-                              <td >Total</td>
-                              <td>500 </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                  
+                  {% endfor %}                  
                 </div>
               </div>
             </div>
