@@ -4,7 +4,10 @@ from prescription.forms import SignupForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import FileSystemStorage
 
+import warnings
+warnings.filterwarnings("ignore")
 
+import os
 from selenium import webdriver 
 from selenium.webdriver.chrome.service import Service as ChromeService 
 from webdriver_manager.chrome import ChromeDriverManager 
@@ -92,7 +95,8 @@ class Result(View):
             fileurl=fs.url(file)
             path = '.'+fileurl
             text = getText(path)
-            
+
+            print(text)
             MEDICINES = []
             for word in text.split():
                 med, sim = autoCorrect(word,WORDS)
@@ -110,7 +114,8 @@ class Result(View):
                 getApollo(MEDICINES,driver),
                 getNetmed(MEDICINES,driver)
             ]
-        
+            print(path)
+            os.remove(path)
         print(data)
             
         context = {"data":data,'webs':webs}

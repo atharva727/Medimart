@@ -26,5 +26,5 @@ def autoCorrect(inputWord,WORDS):
         d[sim] = v
     
     # print(inputWord,d[maxSim],sim,sep="   ")
-    return (d[maxSim],sim)
+    return (d[maxSim],maxSim)
 

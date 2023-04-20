@@ -18,7 +18,7 @@
                         <table class="table table-striped mb-0">
                           <thead style="background-color: #002d72;">
                             <tr class='text-center'>
-                              <th scope="col" colspan="3">{{website}}</th>
+                              <th scope="col" colspan="3">{{webdata.name}}</th>
                             </tr>
                             <tr>
                               <th scope="col">Medicine</th>
@@ -27,17 +27,17 @@
                             </tr>
                           </thead>
                           <tbody>
-                            {% for medicines in webdata %}
+                            {% for medicine in webdata.medicines %}
                             <tr>
-                              {% for medinfo in medicines.values %}
-                              <td>{{medinfo}}</td>
-                              {% endfor %}
+                              <td style="width:70%">{{medicine.name}}</td>
+                              <td style="width:20%">Rs. {{medicine.price}}</td>
+                              <td style="width:10%"><a type="button" href={{medicine.link}} class="btn btn-primary">View</a></td>
                             </tr>
                             {% endfor %}
                             <tr>
-                              <td></td>
                               <td >Total</td>
-                              <td>500 </td>
+                              <td>Rs. {{webdata.totalPrice}} </td>
+                              <td></td>
                             </tr>
                           </tbody>
                         </table>

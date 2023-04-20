@@ -12,18 +12,31 @@
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-                <form action="{% url 'result'%}" method="post" enctype="multipart/form-data">
+                <form action="{% url 'result'%}" method="post" enctype="multipart/form-data" id="upload-form">
                     {% csrf_token %}
                     <h1>Upload Your Prescription</h1>
                     <div class="d-flex justify-content-center my-2 align-items-center" id="img-container">
                         <img class="img-fluid h-100" src="" alt="" id="prescriptionImage">
                     </div>
-                    <input type="file" class="form-control my-3" name="prescriptionImage" accept="image/*" id="prescriptionInput" onchange="upload_img(this);" >
+                    <input required type="file" class="form-control my-3" name="prescriptionImage" accept="image/*" id="prescriptionInput" onchange="upload_img(this);" >
                     <button type="submit" class="signup-btn mb-2" style="border: 1px solid #ffffff">Upload</button>
                 </form>
 			</div>
 		</div>
 	</div>
+</div>
+<div id="loader" class="">
+    <div class="loading-container">
+        <div class="loading-text">
+        <span>L</span>
+        <span>O</span>
+        <span>A</span>
+        <span>D</span>
+        <span>I</span>
+        <span>N</span>
+        <span>G</span>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
@@ -43,5 +56,19 @@
             reader.readAsDataURL(input.files[0]);
         }
       }
+
+      const myForm = document.getElementById("upload-form");
+      myForm.addEventListener('submit', ()=>{
+        const bodyChildren = document.querySelectorAll("body > *:not(script)");
+        bodyChildren.forEach(child => {
+            child.style.display = 'none';
+        });
+
+      const loader = document.getElementById('loader');
+      loader.style.display = 'flex';
+      });
+
+      
+
 </script>
 {% endblock %}
