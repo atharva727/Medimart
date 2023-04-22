@@ -15,12 +15,12 @@ html, body{
     height: 59vh;
 }
 
-a{
+footer a{
     text-decoration: none;
     color: white;
 }
 
-a:hover{
+footer a:hover{
     /* background: linear-gradient(to right, #FF4B2B, #FF416C); */
     color:#ff586c;
 }
@@ -36,45 +36,6 @@ footer {
     margin-bottom: -50px;
 }
 
-
-/* table */
-.intro {
-  height: 100%;
-}
-
-table td,
-table th {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-thead th {
-  color: #fff;
-}
-
-.card {
-  border-radius: .5rem;
-}
-
-.table-scroll {
-  border-radius: .5rem;
-}
-
-.table-scroll table thead th {
-  font-size: 1.25rem;
-}
-
-.card{
-    margin-top: 2vh;
-    margin-bottom: 2vh;
-}
-
-tbody tr:last-child{
-    background-color:rgba(0, 0, 0, 0.4); 
-    color:#fff
-}
-
 /* Loader */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 * {
@@ -86,6 +47,7 @@ tbody tr:last-child{
   width: 100%;
   height: 100vh;
   justify-content: center;
+  
   align-items: center;
 }
 
@@ -93,7 +55,7 @@ tbody tr:last-child{
   width: 100%;
   max-width: 520px;
   text-align: center;
-  color: #fff;
+  /* color: #fff; */  
   position: relative;
   margin: 0 32px;
 }
@@ -101,8 +63,8 @@ tbody tr:last-child{
   content: "";
   position: absolute;
   width: 100%;
-  height: 3px;
-  background-color: #fff;
+  height: 3px;  
+  background: linear-gradient(to right, #ff0844 0%, #ffb199 100%);
   bottom: 0;
   left: 0;
   border-radius: 10px;
@@ -151,7 +113,7 @@ tbody tr:last-child{
     width: 0;
   }
 }
-.loading-text {
+.loading-text {  
   font-size: 5vw;
   line-height: 64px;
   letter-spacing: 10px;
@@ -170,38 +132,60 @@ tbody tr:last-child{
 }
 
 .loading-text span:nth-child(1) {
+  color: #ff0844;
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
 
 .loading-text span:nth-child(2) {
+  color: #ff1e4f;
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 
 .loading-text span:nth-child(3) {
+  color: #ff385c;
   -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
 
 .loading-text span:nth-child(4) {
+  color: #ff4a66;
   -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 
 .loading-text span:nth-child(5) {
+  color: #ff6271;
   -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 
 .loading-text span:nth-child(6) {
+  color: #ff757b;
   -webkit-animation-delay: 0.6s;
           animation-delay: 0.6s;
 }
 
 .loading-text span:nth-child(7) {
+  color: #ff9289;
   -webkit-animation-delay: 0.7s;
           animation-delay: 0.7s;
+}
+.loading-text span:nth-child(8) {
+  color: #ff9a8e;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+.loading-text span:nth-child(9) {
+  color: #ffa995;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
+}
+.loading-text span:nth-child(10) {
+  color: #ffb199;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
 }
 
 @-webkit-keyframes moveLetters {
@@ -231,5 +215,126 @@ tbody tr:last-child{
   100% {
     transform: translateX(15vw);
     opacity: 0;
+  }
+}
+
+.container-table100 {
+  border-radius: 15px;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  width: 100%;
+  background: #c850c0;
+  background: -webkit-linear-gradient(45deg, #4158d0, #c850c0);
+  background: linear-gradient(45deg, #4158d0, #c850c0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4vh 4vw;
+}
+.wrap-table100 {
+  width: 100%;
+  margin: 2vh auto;
+
+}
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+table * {
+  position: relative;
+}
+table td,
+table th {
+  padding-left: 2vw;
+}
+table thead tr {
+  height: 60px;
+  background: #36304a;
+}
+table tbody tr {
+  height: 50px;
+}
+table tbody tr:last-child {
+  height: 50px;
+  border: 0;  
+  background: #36304a ;
+  color: white;
+}
+.table100-head th {
+  font-family: OpenSans-Regular;
+  font-size: 26px;
+  color: #fff;
+  line-height: 1.2;
+  font-weight: unset;
+}
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+tbody tr {
+  font-family: OpenSans-Regular;
+  font-size: 15px;
+  color: gray;
+  line-height: 1.2;
+  font-weight: unset;
+}
+
+
+tbody tr:hover {
+  color: #555;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  table {
+    display: block;
+  }
+  table > *,
+  table tr,
+  table td,
+  table th {
+    display: block;
+  }
+  table thead {
+    display: none;
+  }
+  table tbody tr {
+    height: auto;
+    padding: 37px 0;
+  }
+  table tbody tr td {
+    padding-left: 40% !important;
+    margin-bottom: 24px;
+  }
+  table tbody tr td:last-child {
+    margin-bottom: 0;
+  }
+  table tbody tr td:before {
+    font-family: OpenSans-Regular;
+    font-size: 14px;
+    color: #999;
+    line-height: 1.2;
+    font-weight: unset;
+    position: absolute;
+    width: 40%;
+    left: 30px;
+    top: 0;
+  }
+
+  tbody tr {
+    font-size: 14px;
+  }
+}
+@media (max-width: 576px) {
+  .container-table100 {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
