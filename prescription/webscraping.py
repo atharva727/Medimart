@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+import requests
+from bs4 import BeautifulSoup
 
 def get1mg(medicines, driver):
     meds = []
@@ -18,6 +20,7 @@ def get1mg(medicines, driver):
             d = {'name':None,'price':0,'link':None}
         
         totalPrice+= float(d['price'])
+        totalPrice = round(totalPrice,2)
         meds.append(d)
 
     mg = {'medicines':meds,'totalPrice':totalPrice,'name':'1 MG'}
@@ -41,6 +44,7 @@ def getNetmed(medicines, driver):
             d = {'name':None,'price':0,'link':None}
 
         totalPrice+= float(d['price'])
+        totalPrice = round(totalPrice,2)
         meds.append(d)
 
     netmed = {'medicines':meds,'totalPrice':totalPrice,'name':'NETMEDS'}
@@ -52,17 +56,20 @@ def getApollo(medicines, driver):
     apollo = {}
     for med in medicines:
         url= 'https://www.apollopharmacy.in/search-medicines/' + med
-        driver.get(url) 
+        page = requests.get(url)
+
+        soup = BeautifulSoup(page.content, "html.parser")
         
         d = {}
         try:
-            d['name']  = driver.find_element(By.CLASS_NAME, 'ProductCard_productName__f82e9').text
-            d['price'] =driver.find_element(By.CLASS_NAME,'ProductCard_priceGroup__V3kKR').text.split("₹")[-1]
-            d['link']  = driver.find_element(By.CLASS_NAME, 'ProductCard_proDesMain__LWq_f').get_attribute('href')
+            d['name']  = soup.find_all("p", class_="ProductCard_productName__f82e9")[0].text
+            d['price'] =soup.find_all("div", class_="ProductCard_priceGroup__V3kKR")[0].text.split("₹")[-1]
+            d['link']  = 'https://www.apollopharmacy.in/'+ soup.find_all("a", class_="ProductCard_proDesMain__LWq_f")[0].get('href')
         except:
             d = {'name':None,'price':0,'link':None}
         
         totalPrice+= float(d['price'])
+        totalPrice = round(totalPrice,2)
         meds.append(d)
 
     apollo = {'medicines':meds,'totalPrice':totalPrice,'name':'APOLLO'}
@@ -73,18 +80,21 @@ def getPharmeasy(medicines, driver):
     totalPrice = 0
     pharmeasy = {}
     for med in medicines:
+
         url= 'https://pharmeasy.in/search/all?name=' + med
-        driver.get(url) 
+        page = requests.get(url)
+        soup = BeautifulSoup(page.content, "html.parser") 
         
         d = {}
-        try:
-            d['name']=driver.find_element(By.CLASS_NAME,'ProductCard_medicineName__8Ydfq').text
-            d['price']=driver.find_element(By.CSS_SELECTOR,'.ProductCard_gcdDiscountContainer__CCi51 span').text.split("₹")[-1]
-            d['link'] = driver.find_element(By.CLASS_NAME,'ProductCard_defaultWrapper__nxV0R').get_attribute('href')
+        try:            
+            d['name']  = soup.find_all("h1", class_="ProductCard_medicineName__8Ydfq")[0].text
+            d['price'] =soup.select(".ProductCard_gcdDiscountContainer__CCi51 span")[0].text.split("₹")[-1]
+            d['link']  = 'https://pharmeasy.in/' + soup.find_all("a", class_="ProductCard_medicineUnitWrapper__eoLpy")[0].get('href')
         except:
             d = {'name':None,'price':0,'link':None}
         
         totalPrice+= float(d['price'])
+        totalPrice = round(totalPrice,2)
         meds.append(d)
     
     pharmeasy = {'medicines':meds,'totalPrice':totalPrice,'name':'PHARMEASY'}        

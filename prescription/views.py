@@ -80,7 +80,6 @@ class Prescription(View):
         return render(request,'prescription.html')
 
     def post(self,request):
-        #print(request.FILES.get("prescriptionImage"))
         pass
 
 class Result(View):
@@ -89,14 +88,13 @@ class Result(View):
 
     def post(self,request):
         request_file=request.FILES['prescriptionImage'] if 'prescriptionImage' in request.FILES else None
-        if request_file:
+        if request_file is not None:
             fs=FileSystemStorage()
             file=fs.save(request_file.name,request_file)
             fileurl=fs.url(file)
             path = '.'+fileurl
             text = getText(path)
 
-            print(text)
             MEDICINES = []
             for word in text.split():
                 med, sim = autoCorrect(word,WORDS)
@@ -110,13 +108,11 @@ class Result(View):
             webs = []
             data = [
                 getPharmeasy(MEDICINES,driver),
-                get1mg(MEDICINES,driver),
+                # get1mg(MEDICINES,driver),
                 getApollo(MEDICINES,driver),
                 getNetmed(MEDICINES,driver)
             ]
-            print(path)
             os.remove(path)
-        print(data)
             
         context = {"data":data,'webs':webs}
                 
