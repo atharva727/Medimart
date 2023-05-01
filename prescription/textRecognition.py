@@ -2,8 +2,9 @@ from doctr.models import ocr_predictor
 from doctr.io import DocumentFile
 import textdistance
 
-def getText(imagePath):
-    model = ocr_predictor(pretrained=True)
+def getText(imagePath,model):
+    if model is None:
+        model = ocr_predictor(pretrained=True)
     
     doc = DocumentFile.from_images(imagePath)
     result = model(doc)

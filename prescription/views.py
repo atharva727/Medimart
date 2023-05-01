@@ -14,16 +14,19 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 
-
-
 from .webscraping import *
+from doctr.models import ocr_predictor
 from .textRecognition import getText, autoCorrect
 WORDS= []
-
+model = None
 
 # Create your views here.
 class Index(View):
     def get(self,request):
+        global model
+        if model is None:
+            print("Model Loaded")
+            model = ocr_predictor(pretrained=True)
         return render(request,'index.html')
 
 class Login(View):
@@ -87,13 +90,14 @@ class Result(View):
         return render(request,'results.html')
 
     def post(self,request):
+        global model
         request_file=request.FILES['prescriptionImage'] if 'prescriptionImage' in request.FILES else None
         if request_file is not None:
             fs=FileSystemStorage()
             file=fs.save(request_file.name,request_file)
             fileurl=fs.url(file)
-            path = '.'+fileurl
-            text = getText(path)
+            path = '.'+fileurl            
+            text = getText(path,model)
 
             MEDICINES = []
             for word in text.split():
@@ -108,7 +112,6 @@ class Result(View):
             webs = []
             data = [
                 getPharmeasy(MEDICINES,driver),
-                # get1mg(MEDICINES,driver),
                 getApollo(MEDICINES,driver),
                 getNetmed(MEDICINES,driver)
             ]

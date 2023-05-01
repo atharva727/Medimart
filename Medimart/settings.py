@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-jc6#qmq1b%(ko2c#81&#2&@^@c$0a(d*s=ddlqo$*a71nnim%x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['medimart.azurewebsites.net',]
 
 
 # Application definition
@@ -110,11 +110,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
-
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
